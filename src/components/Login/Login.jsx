@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
 import useSetTitle from '../../hooks/useSetTitle';
 
+
 function Login() {
     const { signIn, loginWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -80,6 +81,7 @@ function Login() {
                         />
                     </div>
                     <div className="flex items-center justify-between">
+
                         <input
                             className="bg-[#570df8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="submit"

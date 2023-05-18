@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation } from 'react-router-dom';
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -30,8 +31,12 @@ const Header = () => {
                         <ul tabIndex={0} className="font-medium menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
                             <li><Link to="/all-toys" className={location.pathname === '/all-toys' ? 'active' : ''}>All Toys</Link></li>
-                            <li><Link to="/my-toys" className={location.pathname === '/my-toys' ? 'active' : ''}>My Toys</Link></li>
-                            <li><Link to="/add-toy" className={location.pathname === '/add-toy' ? 'active' : ''}>Add Toy</Link></li>
+                            {
+                                user && <>
+                                    <li><Link to="/my-toys" className={location.pathname === '/my-toys' ? 'active' : ''}>My Toys</Link></li>
+                                    <li><Link to="/add-toy" className={location.pathname === '/add-toy' ? 'active' : ''}>Add a Toy</Link></li>
+                                </>
+                            }
                             <li><Link to="/blogs" className={location.pathname === '/blogs' ? 'active' : ''}>Blogs</Link></li>
                             <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
                             <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
@@ -47,8 +52,12 @@ const Header = () => {
                     <ul className="font-medium menu menu-horizontal px-1">
                         <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
                         <li><Link to="/all-toys" className={location.pathname === '/all-toys' ? 'active' : ''}>All Toys</Link></li>
-                        <li><Link to="/my-toys" className={location.pathname === '/my-toys' ? 'active' : ''}>My Toys</Link></li>
-                        <li><Link to="/add-toy" className={location.pathname === '/add-toy' ? 'active' : ''}>Add Toy</Link></li>
+                        {
+                            user && <>
+                                <li><Link to="/my-toys" className={location.pathname === '/my-toys' ? 'active' : ''}>My Toys</Link></li>
+                                <li><Link to="/add-toy" className={location.pathname === '/add-toy' ? 'active' : ''}>Add a Toy</Link></li>
+                            </>
+                        }
                         <li><Link to="/blogs" className={location.pathname === '/blogs' ? 'active' : ''}>Blogs</Link></li>
                         <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
                         <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
@@ -57,8 +66,8 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <label tabIndex={0} className="btn btn-ghost btn-circle avatar" title={user?.displayName}>
-                            <div className="w-10 rounded-full">
+                        user ? <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom me-2" data-tip={user?.displayName} >
+                            <div className="w-12 rounded-full">
 
                                 <img src={user?.photoURL} alt="" />
 
@@ -67,7 +76,7 @@ const Header = () => {
                             <h1></h1>
                     }
                     {
-                        user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold">Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold">Login</Link>
+                        user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold"> <FaSignOutAlt className="me-1"></FaSignOutAlt> Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold"> <FaSignInAlt className='me-1'></FaSignInAlt> Login</Link>
                     }
                 </div>
             </div>
