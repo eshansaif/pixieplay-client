@@ -1,23 +1,23 @@
 import React from 'react';
 import { useContext } from 'react';
-// import { AuthContext } from '../../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-    // const { user, logout } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const location = useLocation();
 
     // console.log(user);
 
-    // const handleLogout = () => {
-    //     logout()
-    //         .then((result) => {
-    //             console.log("Logged out successfully");
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    // }
+    const handleLogout = () => {
+        logout()
+            .then((result) => {
+                console.log("Logged out successfully");
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
     return (
         <div>
@@ -56,7 +56,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* {
+                    {
                         user ? <label tabIndex={0} className="btn btn-ghost btn-circle avatar" title={user?.displayName}>
                             <div className="w-10 rounded-full">
 
@@ -67,10 +67,8 @@ const Header = () => {
                             <h1></h1>
                     }
                     {
-                        user ? <button onClick={handleLogout} className="btn btn-ghost">Logout</button> : <Link to="/login" className="btn btn-ghost">Login</Link>
-                    } */}
-
-                    <Link to="/login" className="btn btn-ghost">Login</Link>
+                        user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold">Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold">Login</Link>
+                    }
                 </div>
             </div>
         </div>
