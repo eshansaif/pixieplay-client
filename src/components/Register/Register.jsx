@@ -63,7 +63,8 @@ const Register = () => {
         <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
             <div className="w-full max-w-md">
                 <form onSubmit={handleRegister} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
-                    <h3 className="text-center text-[#570df8] font-bold mb-2 text-lg">Please Register</h3>
+                    <h3 className="text-center text-[#570df8] font-bold mb-1 text-lg">Welcome to PixiePlay!</h3>
+                    <h4 className="text-center text-[#570df8] font-medium mb-2 text-lg underline">Please Register</h4>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
                             Name
@@ -135,7 +136,7 @@ const Register = () => {
                             value="Register"
                         />
                         <p> Already Registered? <Link to="/login"
-                            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                            className="inline-block align-baseline font-bold text-sm hover:text-blue-500 text-[#570df8]"
 
                         >
                             Login
