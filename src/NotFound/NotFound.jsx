@@ -1,8 +1,8 @@
 import React from 'react';
-// import useSetTitle from '../../hooks/useSetTitle';
+import useSetTitle from '../hooks/useSetTitle';
 
 const NotFound = () => {
-    // useSetTitle("Not Found")
+    useSetTitle("Not Found")
     return (
         <div className="flex justify-center items-center h-screen">
             <div className="text-center">
