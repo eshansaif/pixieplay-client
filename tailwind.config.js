@@ -8,5 +8,8 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  colors: {
+    'gray-dark': '#273444'
+  },
 }
 
