@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
 import useSetTitle from '../../hooks/useSetTitle';
+import { FaGoogle } from 'react-icons/fa';
 
 
 function Login() {
@@ -108,8 +109,8 @@ function Login() {
                 </div>
 
                 <div className="flex justify-center mb-4">
-                    <button onClick={loginWithGoogleHandler} className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
-                        Login with Google
+                    <button onClick={loginWithGoogleHandler} className="bg-[#570df8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2 flex justify-center items-center">
+                        <FaGoogle className='me-2' /> Login with Google
                     </button>
 
                 </div>
