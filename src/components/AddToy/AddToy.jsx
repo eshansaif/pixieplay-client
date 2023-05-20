@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import useSetTitle from '../../hooks/useSetTitle';
+import swal from 'sweetalert';
 
 const AddToy = () => {
     useSetTitle("Add Toy")
@@ -23,7 +24,7 @@ const AddToy = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal("Toy Added Successfully!");
+                    swal("Wow!", "You have added a Toy Product Successfully!", "success");
                     reset();
                 }
             })

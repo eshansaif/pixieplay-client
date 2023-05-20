@@ -3,8 +3,21 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Rating from 'react-rating';
 import { FaArrowRight, FaCheckCircle, FaHeart, FaSortAmountDownAlt, FaStar, FaTheaterMasks, FaThumbsUp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import swal from 'sweetalert';
+
 
 const TabSubCategory = () => {
+    const { user } = useContext(AuthContext);
+
+    const handleViewDetails = () => {
+        if (!user) {
+            swal("Ohh!", "You are not logged in, Please login first to proceed!", "error");
+        }
+    }
+
     const [selectedTab, setSelectedTab] = useState(0);
 
     const handleTabSelect = (index) => {
@@ -34,6 +47,11 @@ const TabSubCategory = () => {
             })
     }, [])
 
+
+    // useEffect(() => {
+    //     fetch("http://localhost:5000/toy/6468fa1b7da14ff469d1c98b")
+    // },[])
+
     return (
         <div className="mb-10">
             <Tabs selectedIndex={selectedTab} onSelect={handleTabSelect}>
@@ -60,7 +78,7 @@ const TabSubCategory = () => {
                                         emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
                                     /></p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">View Details</button>
+                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>)
@@ -84,7 +102,7 @@ const TabSubCategory = () => {
                                         emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
                                     /></p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">View Details</button>
+                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>)
@@ -108,7 +126,7 @@ const TabSubCategory = () => {
                                         emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
                                     /></p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">View Details</button>
+                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>)
