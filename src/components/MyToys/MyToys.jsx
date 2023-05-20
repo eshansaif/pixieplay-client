@@ -41,6 +41,42 @@ const MyToys = () => {
     const isShowAllDisabled = filteredToys.length <= 20;
 
 
+    // Delete toy from DB
+
+    const handleDelete = _id => {
+        console.log(_id);
+        swal({
+            title: "Are you sure to Delete?",
+            text: "Once deleted, you will not be able to recover this One!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/toy/${_id}`, {
+                        method: "DELETE",
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data)
+                            if (data.deletedCount > 0) {
+                                swal(`Poof! Toy (${_id}) has been deleted!`, {
+                                    icon: "success",
+                                });
+                            }
+
+                            const remaining = myToys.filter(toy => toy._id !== _id);
+                            setMyToys(remaining)
+
+                        })
+                } else {
+                    swal("You will not be deleted!");
+                }
+            });
+    }
+
+
     return (
         <div>
             <div className='my-10 mx-16'>
@@ -117,7 +153,7 @@ const MyToys = () => {
                                         <div className="btn-group">
                                             <Link to={`/toy/${toy._id}`}><button className="btn btn-xs btn-success tooltip" data-tip="View"> <FaEye></FaEye></button></Link>
                                             <Link to={`/update-toy/${toy._id}`}><button className="btn btn-xs btn-warning tooltip" data-tip="Update"> <FaEdit></FaEdit> </button></Link>
-                                            <button className="btn btn-xs btn-error tooltip font-bold" data-tip="Delete">X</button>
+                                            <button onClick={() => handleDelete(toy._id)} className="btn btn-xs btn-error tooltip font-bold" data-tip="Delete">X</button>
                                         </div>
                                     </th>
 

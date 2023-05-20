@@ -75,6 +75,7 @@ const Register = () => {
                             name='name'
                             type="name"
                             placeholder="Name"
+                            required
                         />
                     </div>
                     <div className="mb-4">
