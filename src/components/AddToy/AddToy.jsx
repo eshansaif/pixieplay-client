@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AddToy = () => {
+    useSetTitle("Add Toy")
 
     const { user } = useContext(AuthContext);
 
@@ -22,6 +24,7 @@ const AddToy = () => {
                 console.log(data);
                 if (data.insertedId) {
                     swal("Toy Added Successfully!");
+                    newToy.reset();
                 }
             })
     };
@@ -35,9 +38,9 @@ const AddToy = () => {
                         <label className="input-group input-group-vertical">
                             <span>Select Sub Category</span>
                             <select className="select select-bordered w-full" {...register("subCategory")}>
-                                <option value="sub-cat1">Sub-Category1</option>
-                                <option value="sub-cat2">Sub-Category2</option>
-                                <option value="sub-cat3">Sub-Category3</option>
+                                <option value="Sports Car">Sports Car</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Mini Fire Truck">Mini Fire Truck</option>
                             </select>
                         </label>
                     </div>
@@ -74,7 +77,7 @@ const AddToy = () => {
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Rating</span>
-                            <input {...register("rating")} type="number" placeholder="Rating" className="input input-bordered" />
+                            <input {...register("rating")} type="text" placeholder="Rating" className="input input-bordered" />
                         </label>
                     </div>
                     <div className="form-control ">

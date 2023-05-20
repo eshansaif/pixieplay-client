@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AllToys = () => {
+    useSetTitle("All Toys")
     const toysData = useLoaderData();
     const [searchTerm, setSearchTerm] = useState('');
     const [showAll, setShowAll] = useState(false);
@@ -89,7 +91,7 @@ const AllToys = () => {
                                     <br />
                                     <span className="badge badge-ghost badge-lg">{toy.sellerName}</span>
                                 </td>
-                                <td>{toy.toyName}</td>
+                                <td>{toy.toyName.length > 20 ? toy.toyName.substring(0, 20) + "......" : toy.toyName}</td>
                                 <td>{toy.subCategory}</td>
                                 <td>{toy.price}</td>
                                 <td>{toy.quantity}</td>
