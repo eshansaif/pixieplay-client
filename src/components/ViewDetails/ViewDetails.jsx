@@ -4,10 +4,11 @@ import useSetTitle from '../../hooks/useSetTitle';
 import { FaHandHoldingHeart, FaMailBulk, FaMoneyBillWave, FaPeopleCarry, FaSearchPlus, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 
+
 const ViewDetails = () => {
     const toyDetails = useLoaderData();
     useSetTitle(`${toyDetails.toyName}`);
-    console.log(toyDetails);
+    // console.log(toyDetails);
     const { pictureURL, subCategory, toyName, sellerName, sellerEmail, price, rating, quantity, description } = toyDetails;
     return (
         <div className="flex justify-center my-10">
@@ -32,6 +33,7 @@ const ViewDetails = () => {
 
                     <div className="card-actions justify-end">
                         <Link to="/all-toys"><button className="btn btn-primary">View All Toys</button></Link>
+                        <button className="btn btn-success" onClick={() => window.history.back()}>Go Back</button>
                     </div>
                 </div>
             </div>

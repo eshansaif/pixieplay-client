@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import useSetTitle from '../../hooks/useSetTitle';
+import { FaEdit, FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MyToys = () => {
     useSetTitle("My Toys")
@@ -107,12 +109,16 @@ const MyToys = () => {
                                         <br />
                                         <span className="badge badge-ghost badge-lg">{toy.sellerName}</span>
                                     </td>
-                                    <td>{toy.toyName.length > 20 ? toy.toyName.substring(0, 20) + "......" : toy.toyName}</td>
+                                    <td className="tooltip" data-tip={toy.toyName}>{toy.toyName.length > 25 ? toy.toyName.substring(0, 25) + "...." : toy.toyName}</td>
                                     <td>{toy.subCategory}</td>
-                                    <td>{toy.price}</td>
+                                    <td>{toy.price} BDT</td>
                                     <td>{toy.quantity}</td>
-                                    <th>
-                                        <button className="btn btn-primary btn-xs">View Details</button>
+                                    <th class="flex flex-col gap-1">
+                                        <div className="btn-group">
+                                            <Link to={`/toy/${toy._id}`}><button className="btn btn-xs btn-success tooltip" data-tip="View"> <FaEye></FaEye></button></Link>
+                                            <Link to={`/update-toy/${toy._id}`}><button className="btn btn-xs btn-warning tooltip" data-tip="Update"> <FaEdit></FaEdit> </button></Link>
+                                            <button className="btn btn-xs btn-error tooltip font-bold" data-tip="Delete">X</button>
+                                        </div>
                                     </th>
 
                                 </tr>)

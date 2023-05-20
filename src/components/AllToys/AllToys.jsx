@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import useSetTitle from '../../hooks/useSetTitle';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AllToys = () => {
     useSetTitle("All Toys")
+
+    const { user } = useContext(AuthContext);
+
+    const handleViewDetails = () => {
+        if (!user) {
+            swal("Ohh!", "You are not logged in, Please login first to proceed!", "error");
+        }
+    }
+
     const toysData = useLoaderData();
     const [searchTerm, setSearchTerm] = useState('');
     const [showAll, setShowAll] = useState(false);
@@ -91,12 +101,12 @@ const AllToys = () => {
                                     <br />
                                     <span className="badge badge-ghost badge-lg">{toy.sellerName}</span>
                                 </td>
-                                <td>{toy.toyName.length > 20 ? toy.toyName.substring(0, 20) + "......" : toy.toyName}</td>
+                                <td className="tooltip tooltip-lg" data-tip={toy.toyName}>{toy.toyName.length > 20 ? toy.toyName.substring(0, 20) + "......" : toy.toyName}</td>
                                 <td>{toy.subCategory}</td>
-                                <td>{toy.price}</td>
+                                <td>{toy.price} BDT</td>
                                 <td>{toy.quantity}</td>
                                 <th>
-                                    <Link to={`/toy/${toy._id}`}><button className="btn btn-primary btn-xs">View Details</button></Link>
+                                    <Link to={`/toy/${toy._id}`}><button onClick={handleViewDetails} className="btn btn-primary btn-xs">View Details</button></Link>
                                 </th>
 
                             </tr>)
