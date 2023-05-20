@@ -34,7 +34,7 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: "add-toy",
+                path: "/add-toy",
                 element: <PrivateRoutes><AddToy></AddToy></PrivateRoutes>
             },
             {
@@ -42,15 +42,16 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><MyToys></MyToys></PrivateRoutes>
             },
             {
-                path: "/toy/:id",
-                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
-            },
-            {
                 path: "/all-toys",
                 element: <AllToys></AllToys>,
                 loader: () => fetch("http://localhost:5000/toys")
+            },
+            {
+                path: "/toy/:id",
+                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             }
+
         ]
     },
     {

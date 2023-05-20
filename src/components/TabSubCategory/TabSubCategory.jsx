@@ -78,7 +78,7 @@ const TabSubCategory = () => {
                                         emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
                                     /></p>
                                     <div className="card-actions justify-end">
-                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                                        <Link to={`./toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>)
