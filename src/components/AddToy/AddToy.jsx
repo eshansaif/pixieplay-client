@@ -8,7 +8,7 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = newToy => {
 
         // send data to the server
@@ -47,49 +47,57 @@ const AddToy = () => {
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Toy Name</span>
-                            <input {...register("toyName")} type="text" placeholder="Toy Name" className="input input-bordered" />
+                            <input {...register("toyName", { required: true })} type="text" placeholder="Toy Name" className="input input-bordered" />
+                            {errors.toyName && errors.toyName.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Toy Picture URL</span>
-                            <input {...register("pictureURL")} type="text" placeholder="Toy Picture URL" className="input input-bordered" />
+                            <input {...register("pictureURL", { required: true })} type="text" placeholder="Toy Picture URL" className="input input-bordered" />
+                            {errors.pictureURL && errors.pictureURL.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Seller Name</span>
-                            <input defaultValue={user?.displayName} {...register("sellerName")} type="text" placeholder="Seller Name" className="input input-bordered" />
+                            <input defaultValue={user?.displayName} {...register("sellerName", { required: true })} type="text" placeholder="Seller Name" className="input input-bordered" />
+                            {errors.sellerName && errors.sellerName.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Seller Email</span>
-                            <input defaultValue={user?.email} {...register("sellerEmail")} type="text" placeholder="Seller Email" className="input input-bordered" />
+                            <input defaultValue={user?.email} {...register("sellerEmail", { required: true })} type="text" placeholder="Seller Email" className="input input-bordered" />
+                            {errors.sellerEmail && errors.sellerEmail.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Price</span>
-                            <input {...register("price")} type="number" placeholder="Price" className="input input-bordered" />
+                            <input {...register("price", { required: true })} type="number" placeholder="Price" className="input input-bordered" />
+                            {errors.price && errors.price.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Rating</span>
-                            <input {...register("rating")} type="text" placeholder="Rating" className="input input-bordered" />
+                            <input {...register("rating", { required: true })} type="text" placeholder="Rating" className="input input-bordered" />
+                            {errors.rating && errors.rating.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Available Quantity</span>
-                            <input {...register("quantity")} type="number" placeholder="Quantity" className="input input-bordered" />
+                            <input {...register("quantity", { required: true })} type="number" placeholder="Quantity" className="input input-bordered" />
+                            {errors.quantity && errors.quantity.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Description</span>
-                            <textarea {...register("description")} placeholder="Description" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
+                            <textarea {...register("description", { required: true })} placeholder="Description" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
+                            {errors.description && errors.description.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
 
