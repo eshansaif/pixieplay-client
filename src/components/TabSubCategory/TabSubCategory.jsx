@@ -13,9 +13,9 @@ const TabSubCategory = () => {
         <div>
             <Tabs selectedIndex={selectedTab} onSelect={handleTabSelect}>
                 <TabList className="flex justify-center gap-4 tabs tabs-boxed">
-                    <Tab className={`tab ${selectedTab === 0 ? 'active' : ''}`}>Title 1</Tab>
-                    <Tab className={`tab ${selectedTab === 1 ? 'active' : ''}`}>Title 2</Tab>
-                    <Tab className={`tab ${selectedTab === 2 ? 'active' : ''}`}>Title 3</Tab>
+                    <Tab className={`tab ${selectedTab === 0 ? 'active' : ''}`} style={{ backgroundColor: selectedTab === 0 ? '#e0a82e' : '' }}>Title 1</Tab>
+                    <Tab className={`tab ${selectedTab === 1 ? 'active' : ''}`} style={{ backgroundColor: selectedTab === 1 ? '#e0a82e' : '' }}>Title 2</Tab>
+                    <Tab className={`tab ${selectedTab === 2 ? 'active' : ''}`} style={{ backgroundColor: selectedTab === 2 ? '#e0a82e' : '' }}>Title 3</Tab>
                 </TabList>
 
                 <TabPanel>
