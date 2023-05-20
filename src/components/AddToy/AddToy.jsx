@@ -24,8 +24,6 @@ const AddToy = () => {
                     swal("Toy Added Successfully!");
                 }
             })
-
-
     };
     return (
 
