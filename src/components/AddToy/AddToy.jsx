@@ -8,7 +8,7 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = newToy => {
 
         // send data to the server
@@ -24,7 +24,7 @@ const AddToy = () => {
                 console.log(data);
                 if (data.insertedId) {
                     swal("Toy Added Successfully!");
-                    newToy.reset();
+                    reset();
                 }
             })
     };
