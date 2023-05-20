@@ -153,7 +153,7 @@ const MyToys = () => {
                                         <div className="btn-group">
                                             <Link to={`/toy/${toy._id}`}><button className="btn btn-xs btn-success tooltip" data-tip="View"> <FaEye></FaEye></button></Link>
                                             <Link to={`/update-toy/${toy._id}`}><button className="btn btn-xs btn-warning tooltip" data-tip="Update"> <FaEdit></FaEdit> </button></Link>
-                                            <button onClick={() => handleDelete(toy._id)} className="btn btn-xs btn-error tooltip font-bold" data-tip="Delete">X</button>
+                                            <button onClick={() => handleDelete(toy._id)} className="btn btn-xs btn-error tooltip font-bold rounded-md" data-tip="Delete">X</button>
                                         </div>
                                     </th>
 
