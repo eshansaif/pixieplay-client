@@ -67,14 +67,14 @@ const UpdateToy = () => {
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Seller Name</span>
-                            <input defaultValue={sellerName} {...register("sellerName", { required: true })} type="text" placeholder="Seller Name" className="input input-bordered" />
+                            <input disabled defaultValue={sellerName} {...register("sellerName", { required: true })} type="text" placeholder="Seller Name" className="input input-bordered" />
                             {errors.sellerName && errors.sellerName.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>
                     <div className="form-control ">
                         <label className="input-group input-group-vertical">
                             <span>Seller Email</span>
-                            <input defaultValue={sellerEmail} {...register("sellerEmail", { required: true })} type="text" placeholder="Seller Email" className="input input-bordered" />
+                            <input disabled defaultValue={sellerEmail} {...register("sellerEmail", { required: true })} type="text" placeholder="Seller Email" className="input input-bordered" />
                             {errors.sellerEmail && errors.sellerEmail.type === "required" && <span className="bg-red-500">This field is required</span>}
                         </label>
                     </div>

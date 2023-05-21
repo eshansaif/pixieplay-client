@@ -1,15 +1,16 @@
 import React from 'react';
+import { FaFacebook, FaInstagram, FaPeopleArrows, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Contact = () => {
     return (
         <div className="container mx-auto py-8">
+            <div className=" divider font-extrabold text-[#e0a82e] text-3xl"><span className='bg-[#181830] p-1 rounded-lg font-mono'>Contact Us</span></div>
             <div className="bg-white shadow-md rounded-lg p-8">
-                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="text-gray-800">
                         <h3 className="text-xl font-bold mb-2">Reach Out to Us</h3>
                         <p className="mb-4">Feel free to contact us if you have any questions, suggestions, or inquiries. We are here to assist you!</p>
-                        <ul className="mb-4">
+                        <ul className="mb-4 items-center justify-center">
                             <li className="flex items-center mb-2">
                                 <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 13a1 1 0 11-2 0 1 1 0 012 0zm-1-2a1 1 0 100-2 1 1 0 000 2z" />
@@ -26,8 +27,24 @@ const Contact = () => {
                                 <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 2a8 8 0 018 8c0 3.368-2.683 7-8 10-5.316-3-8-6.632-8-10a8 8 0 018-8zm1 13a1 1 0 100-2 1 1 0 000 2zm-1-2a1 1 0 110-2 1 1 0 010 2z" />
                                 </svg>
-                                <span>123 Main St, City, State, ZIP</span>
+                                <span>St. Robert, MO 65584-5678.</span>
+
                             </li>
+                            <li className="flex items-center">
+                                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 2a8 8 0 018 8c0 3.368-2.683 7-8 10-5.316-3-8-6.632-8-10a8 8 0 018-8zm1 13a1 1 0 100-2 1 1 0 000 2zm-1-2a1 1 0 110-2 1 1 0 010 2z" />
+                                </svg>
+                                1234 NW Bobcat Lane
+                            </li>
+                        </ul>
+                        <h3 className="text-xl font-bold mb-2">Find Us On</h3>
+                        <p className="mb-4">Feel free to contact us if you have any questions, And Be connected us the below Platforms!</p>
+                        <ul className="mb-4 flex items-center justify-start">
+                            <FaFacebook className="w-6 h-6 mr-2"></FaFacebook>
+                            <FaYoutube className="w-6 h-6 mr-2"></FaYoutube>
+                            <FaInstagram className="w-6 h-6 mr-2"></FaInstagram>
+                            <FaTwitter className="w-6 h-6 mr-2"></FaTwitter>
+
                         </ul>
                     </div>
                     <div>
@@ -45,7 +62,7 @@ const Contact = () => {
                                 <label htmlFor="message" className="block text-gray-800 font-bold mb-2">Message</label>
                                 <textarea id="message" className="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 border" rows="5" placeholder="Enter your message"></textarea>
                             </div>
-                            <button className=" hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline btn btn-primary" type="submit">Send Message</button>
+                            <button className=" hover:bg-yellow-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline btn btn-primary" type="submit">Send Message</button>
                         </div>
                     </div>
                 </div>
