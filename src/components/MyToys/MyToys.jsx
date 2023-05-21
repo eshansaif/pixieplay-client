@@ -10,6 +10,8 @@ const MyToys = () => {
     const { email } = user;
 
     const [myToys, setMyToys] = useState([]);
+    const [sortOrder, setSortOrder] = useState('asc');
+    const [sortedToys, setSortedToys] = useState([]);
 
 
 
@@ -20,6 +22,21 @@ const MyToys = () => {
                 setMyToys(data);
             })
     }, [user])
+
+    // Sorting Asc and Desc
+    const sortToys = (order) => {
+        const sorted = [...filteredToys].sort((a, b) => {
+            if (order === 'asc') {
+                return a.price - b.price;
+            } else {
+                return b.price - a.price;
+            }
+        });
+
+        setSortOrder(order);
+        setSortedToys(sorted);
+    };
+
 
     const [searchTerm, setSearchTerm] = useState('');
     const [showAll, setShowAll] = useState(false);
@@ -37,12 +54,12 @@ const MyToys = () => {
         setShowAll(!showAll);
     };
 
-    const shownRowCount = showAll ? filteredToys.length : Math.min(filteredToys.length, 20);
-    const isShowAllDisabled = filteredToys.length <= 20;
+    const displayedToys = sortedToys.length > 0 ? sortedToys : filteredToys;
+    const shownRowCount = showAll ? displayedToys.length : Math.min(displayedToys.length, 20);
+    const isShowAllDisabled = displayedToys.length <= 20;
 
 
     // Delete toy from DB
-
     const handleDelete = _id => {
         console.log(_id);
         swal({
@@ -75,8 +92,6 @@ const MyToys = () => {
                 }
             });
     }
-
-
     return (
         <div>
             <div className='my-10 mx-16'>
@@ -97,25 +112,37 @@ const MyToys = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* Display the number of shown rows */}
-                <p className="mt-2">
-                    Showing {shownRowCount} out of {filteredToys.length} rows
-                    {/* Toggle Show All button */}
-                    <button
-                        className="btn btn-primary btn-sm ml-4"
-                        onClick={toggleShowAll}
-                        disabled={isShowAllDisabled}
-                    >
-                        {showAll ? 'Show Less' : 'Show All'}
-                    </button>
-                </p>
+                <div className="flex justify-between items-center">
+                    <p className="mt-2">
+                        Showing {shownRowCount} out of {filteredToys.length} rows
+                        {/* Toggle Show All button */}
+                        <button
+                            className="btn btn-primary btn-sm ml-4"
+                            onClick={toggleShowAll}
+                            disabled={isShowAllDisabled}
+                        >
+                            {showAll ? 'Show Less' : 'Show All'}
+                        </button>
+                    </p>
+                    <p>
+                        {/* Sort by Ascending and Descending Based on the Price */}
+                        <select
+                            value={sortOrder}
+                            onChange={(e) => sortToys(e.target.value)}
+                            className="input input-bordered"
+                        >
+                            <option value="asc">Sort by Price (Low to High)</option>
+                            <option value="desc">Sort by Price (High to Low)</option>
+                        </select>
+                    </p>
+
+                </div>
                 <div className="overflow-x-auto w-full mt-3">
                     <table className="table w-full">
                         {/* head */}
                         <thead>
                             <tr>
-
                                 <th>Photo Image</th>
                                 <th>Seller</th>
                                 <th>Toy Name</th>
@@ -129,7 +156,7 @@ const MyToys = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                filteredToys.slice(0, shownRowCount).map(toy => <tr key={toy._id}>
+                                displayedToys.slice(0, shownRowCount).map(toy => <tr key={toy._id}>
 
                                     <td>
                                         <div className="flex items-center space-x-3">
@@ -162,17 +189,6 @@ const MyToys = () => {
 
 
                         </tbody>
-                        {/* foot */}
-                        {/* <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </tfoot> */}
-
                     </table>
                 </div>
             </div>
