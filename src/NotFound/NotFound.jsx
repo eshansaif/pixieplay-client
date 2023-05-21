@@ -2,7 +2,7 @@ import React from 'react';
 import useSetTitle from '../hooks/useSetTitle';
 
 const NotFound = () => {
-    useSetTitle("Not Found")
+    useSetTitle("404 - Not Found")
     return (
         <div className="flex justify-center items-center h-screen">
             <div className="text-center">

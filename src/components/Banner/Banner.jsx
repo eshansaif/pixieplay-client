@@ -59,7 +59,7 @@ const Banner = () => {
                             <div className="max-w-md text-white f">
                                 <h1 className="mb-5 text-5xl font-bold">Baby Sinks</h1>
                                 <p className="mb-5 text-3xl">Roll Here, Play There, And Show The World How Much You Care!</p>
-                                <button className="btn btn-primary">Shop Now</button>
+                                <Link to="/all-toys"><button className="btn btn-primary">Show All</button></Link>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ const Banner = () => {
                             <div className="max-w-md text-white f">
                                 <h1 className="mb-5 text-5xl font-bold">Zany Zoo</h1>
                                 <p className="mb-5 text-3xl">Roll Here, Play There, And Show The World How Much You Care!</p>
-                                <button className="btn btn-primary">Shop Now</button>
+                                <Link to="/all-toys"><button className="btn btn-primary">Show All</button></Link>
                             </div>
                         </div>
                     </div>
