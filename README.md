@@ -1,8 +1,8 @@
 # Live Link of Project: https://pixieplay-e4ac8.web.app/
 
-# Project Name
+# Project Details
 
-The project is platform of Cart toys platform where different seller sells their products and can maintain the products.
+The project, PixiePlay, is platform of Car toys platform where different seller sells their products and can maintain the products.
 
 ## Features
 
