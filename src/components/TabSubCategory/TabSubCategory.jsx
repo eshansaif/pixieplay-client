@@ -15,7 +15,7 @@ const TabSubCategory = () => {
 
     const handleViewDetails = () => {
         if (!user) {
-            swal("Ohh!", "You are not logged in, Please login first to proceed!", "error");
+            swal("Login Alert!", "You are not logged in, Please login first to View Details!", "warning");
         }
     }
 

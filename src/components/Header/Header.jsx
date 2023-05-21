@@ -48,7 +48,7 @@ const Header = () => {
                     </div>
                     <div className="flex justify-center">
                         <img className="img-responsive w-16 ms-8 md:ms-0" src="/animated-toy-image-0038.gif" alt="" />
-                        <a className="btn btn-ghost normal-case text-3xl font-extrabold text-primary font-mono"> PixiePlay</a>
+                        <Link to="/" className="btn btn-ghost normal-case text-3xl font-extrabold text-primary font-mono"> PixiePlay</Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
