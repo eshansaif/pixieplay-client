@@ -8,7 +8,7 @@ const Footer = () => {
                 <div>
                     <Link to="/">
                         <img className="img-responsive w-16 ms-8 md:ms-0" src="/animated-toy-image-0038.gif" alt="" />
-                        <p className="font-bold text-[#570df8]">PixiePlay Ltd.</p>
+                        <p className="font-bold text-primary">PixiePlay Ltd.</p>
                     </Link>
                     <p>Providing reliable and unique products since 2013</p>
                 </div>

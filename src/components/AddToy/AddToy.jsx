@@ -32,7 +32,7 @@ const AddToy = () => {
     return (
 
         <div className="bg-slate-100 py-12">
-            <h3 className='text-6xl font-bold text-[#e0a82e] text-center mb-4'>Add New Product</h3>
+            <div className=" divider font-extrabold text-[#e0a82e] text-3xl mb-10"><span className='bg-[#181830] p-1 rounded-lg font-mono'>Add New Product</span></div>
             <form onSubmit={handleSubmit(onSubmit)}  >
                 <div className="w-2/3 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="form-control md:col-span-2">
