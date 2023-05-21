@@ -63,8 +63,8 @@ const Register = () => {
         <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
             <div className="w-full max-w-md">
                 <form onSubmit={handleRegister} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
-                    <h3 className="text-center text-[#570df8] font-bold mb-1 text-lg">Welcome to PixiePlay!</h3>
-                    <h4 className="text-center text-[#570df8] font-medium mb-2 text-lg underline">Please Register</h4>
+                    <h3 className="text-center text-[#e0a82e] font-bold mb-1 text-lg">Welcome to PixiePlay!</h3>
+                    <h4 className="text-center text-[#e0a82e] font-medium mb-2 text-lg underline">Please Register</h4>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
                             Name
@@ -132,12 +132,12 @@ const Register = () => {
 
                     <div className="flex items-center justify-between">
                         <input
-                            className="bg-[#570df8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            className="bg-[#e0a82e] hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="submit"
                             value="Register"
                         />
                         <p> Already Registered? <Link to="/login"
-                            className="inline-block align-baseline font-bold text-sm hover:text-blue-500 text-[#570df8]"
+                            className="inline-block align-baseline font-bold text-sm hover:text-yellow-500 text-[#e0a82e]"
 
                         >
                             Login

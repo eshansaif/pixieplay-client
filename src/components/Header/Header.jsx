@@ -79,7 +79,7 @@ const Header = () => {
                             <h1></h1>
                     }
                     {
-                        user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold"> <FaSignOutAlt className="me-1"></FaSignOutAlt> Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#570df8] hover:bg-blue-700 text-white font-bold"> <FaSignInAlt className='me-1'></FaSignInAlt> Login</Link>
+                        user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#e0a82e] hover:bg-yellow-700 text-white font-bold"> <FaSignOutAlt className="me-1"></FaSignOutAlt> Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#e0a82e] hover:bg-yellow-700 text-white font-bold"> <FaSignInAlt className='me-1'></FaSignInAlt> Login</Link>
                     }
                 </div>
             </div>
