@@ -13,7 +13,7 @@ const AddToy = () => {
     const onSubmit = newToy => {
 
         // send data to the server
-        fetch("http://localhost:5000/toys", {
+        fetch("https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toys", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

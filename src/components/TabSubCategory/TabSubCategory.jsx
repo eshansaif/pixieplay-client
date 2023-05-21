@@ -30,18 +30,18 @@ const TabSubCategory = () => {
     const [miniFireTrucks, setMiniFireTrucks] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/toys/Sports%20Car")
+        fetch("https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toys/Sports%20Car")
             .then(res => res.json())
             .then(data => {
                 setSportCars(data);
             })
 
-        fetch("http://localhost:5000/toys/Truck")
+        fetch("https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toys/Truck")
             .then(res => res.json())
             .then(data => {
                 setTrucks(data);
             })
-        fetch("http://localhost:5000/toys/Mini%20Fire%20Truck")
+        fetch("https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toys/Mini%20Fire%20Truck")
             .then(res => res.json())
             .then(data => {
                 setMiniFireTrucks(data);

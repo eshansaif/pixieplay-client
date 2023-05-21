@@ -16,7 +16,7 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toys/${email}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/my-toys/${email}`)
             .then(response => response.json())
             .then(data => {
                 setMyToys(data);
@@ -71,7 +71,7 @@ const MyToys = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/toy/${_id}`, {
+                    fetch(`https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toy/${_id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())
