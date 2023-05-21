@@ -3,6 +3,10 @@ import useSetTitle from '../../hooks/useSetTitle';
 import Banner from '../Banner/Banner';
 import TabSubCategory from '../TabSubCategory/TabSubCategory';
 import ImageGallery from '../Imagegallery/Imagegallery';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Home = () => {
     useSetTitle("Home")

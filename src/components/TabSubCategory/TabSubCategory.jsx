@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import swal from 'sweetalert';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TabSubCategory = () => {
     const { user } = useContext(AuthContext);
@@ -45,12 +46,16 @@ const TabSubCategory = () => {
             .then(data => {
                 setMiniFireTrucks(data);
             })
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true, // Apply animations only once
+        });
+
     }, [])
 
 
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/toy/6468fa1b7da14ff469d1c98b")
-    // },[])
 
     return (
         <div className="mb-10">
@@ -64,72 +69,93 @@ const TabSubCategory = () => {
                 <TabPanel>
                     <div className="flex flex-col  md:flex-row justify-center items-center gap-3">
                         {
-                            sportCars.map(car => <div key={car._id} className="card card-compact w-96 bg-base-100 shadow-xl">
-                                <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
-                                <div className="card-body">
-                                    <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 20 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
-                                    <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
-                                    <p className="font-semibold font-mono text-lg">Rating: <Rating
-                                        title={car.rating}
-                                        initialRating={car.rating}
-                                        readonly
-                                        placeholderSymbol={<FaStar className="icon" />}
-                                        fullSymbol={<FaStar color="#FFD700" className="icon" />}
-                                        emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
-                                    /></p>
-                                    <div className="card-actions justify-end">
-                                        <Link to={`./toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                            sportCars.map((car, index) => (
+                                <div
+                                    key={car._id}
+                                    className="card card-compact w-96 bg-base-100 shadow-xl"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
+                                    <div className="card-body">
+                                        <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 20 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
+                                        <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
+                                        <p className="font-semibold font-mono text-lg">Rating: <Rating
+                                            title={car.rating}
+                                            initialRating={car.rating}
+                                            readonly
+                                            placeholderSymbol={<FaStar className="icon" />}
+                                            fullSymbol={<FaStar color="#FFD700" className="icon" />}
+                                            emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
+                                        /></p>
+                                        <div className="card-actions justify-end">
+                                            <Link to={`./toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>)
+                            ))
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
                     <div className="flex flex-col  md:flex-row justify-center items-center gap-3">
                         {
-                            trucks.map(car => <div key={car._id} className="card card-compact w-96 bg-base-100 shadow-xl">
-                                <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
-                                <div className="card-body">
-                                    <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 20 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
-                                    <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
-                                    <p className="font-semibold font-mono text-lg">Rating: <Rating
-                                        title={car.rating}
-                                        initialRating={car.rating}
-                                        readonly
-                                        placeholderSymbol={<FaStar className="icon" />}
-                                        fullSymbol={<FaStar color="#FFD700" className="icon" />}
-                                        emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
-                                    /></p>
-                                    <div className="card-actions justify-end">
-                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                            trucks.map((car, index) => (
+                                <div
+                                    key={car._id}
+                                    className="card card-compact w-96 bg-base-100 shadow-xl"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
+                                    <div className="card-body">
+                                        <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 20 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
+                                        <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
+                                        <p className="font-semibold font-mono text-lg">Rating: <Rating
+                                            title={car.rating}
+                                            initialRating={car.rating}
+                                            readonly
+                                            placeholderSymbol={<FaStar className="icon" />}
+                                            fullSymbol={<FaStar color="#FFD700" className="icon" />}
+                                            emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
+                                        /></p>
+                                        <div className="card-actions justify-end">
+                                            <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>)
+                            ))
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
                     <div className="flex flex-col  md:flex-row justify-center items-center gap-3">
                         {
-                            miniFireTrucks.map(car => <div key={car._id} className="card card-compact w-96 bg-base-100 shadow-xl">
-                                <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
-                                <div className="card-body">
-                                    <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 50 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
-                                    <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
-                                    <p className="font-semibold font-mono text-lg">Rating: <Rating
-                                        title={car.rating}
-                                        initialRating={car.rating}
-                                        readonly
-                                        placeholderSymbol={<FaStar className="icon" />}
-                                        fullSymbol={<FaStar color="#FFD700" className="icon" />}
-                                        emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
-                                    /></p>
-                                    <div className="card-actions justify-end">
-                                        <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                            miniFireTrucks.map((car, index) => (
+                                <div
+                                    key={car._id}
+                                    className="card card-compact w-96 bg-base-100 shadow-xl"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <figure><img className='h-72' src={car.pictureURL} alt="Sport Car" /></figure>
+                                    <div className="card-body">
+                                        <h2 className=" card-title tooltip tooltip-top" data-tip={car.toyName}>{car.toyName.length > 50 ? car.toyName.substring(0, 50) + "......" : car.toyName}</h2>
+                                        <p className="font-semibold font-mono text-lg">Price: {car.price} BDT</p>
+                                        <p className="font-semibold font-mono text-lg">Rating: <Rating
+                                            title={car.rating}
+                                            initialRating={car.rating}
+                                            readonly
+                                            placeholderSymbol={<FaStar className="icon" />}
+                                            fullSymbol={<FaStar color="#FFD700" className="icon" />}
+                                            emptySymbol={<FaStar color="#C4C4C4" className="icon" />}
+                                        /></p>
+                                        <div className="card-actions justify-end">
+                                            <Link to={`toy/${car._id}`}><button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>)
+                            ))
                         }
                     </div>
                 </TabPanel>
