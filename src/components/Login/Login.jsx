@@ -88,7 +88,7 @@ function Login() {
                             type="submit"
                             value="Login"
                         />
-                        <p>
+                        <p className="ms-2">
                             Are you new to PixiePlay? <Link to="/register"
                                 className="inline-block align-baseline font-bold text-sm hover:text-yellow-500 text-[#e0a82e]"
 

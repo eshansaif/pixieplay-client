@@ -46,9 +46,9 @@ const Header = () => {
 
                         </ul>
                     </div>
-                    <div className="flex justify-center">
+                    <div className=" md:flex justify-center">
                         <img className="img-responsive w-16 ms-8 md:ms-0" src="/animated-toy-image-0038.gif" alt="" />
-                        <Link to="/" className="btn btn-ghost normal-case text-3xl font-extrabold text-primary font-mono"> PixiePlay</Link>
+                        <Link to="/" className="btn btn-ghost normal-case text-2xl md:text-3xl font-extrabold text-primary font-mono"> PixiePlay</Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -67,7 +67,7 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end md:flex">
                     {
                         user ? <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom me-2" data-tip={user?.displayName} >
                             <div className="w-12 rounded-full">
@@ -76,7 +76,7 @@ const Header = () => {
 
                             </div>
                         </label> :
-                            <h1></h1>
+                            <span></span>
                     }
                     {
                         user ? <button onClick={handleLogout} className="btn btn-ghost bg-[#e0a82e] hover:bg-yellow-700 text-white font-bold"> <FaSignOutAlt className="me-1"></FaSignOutAlt> Logout</button> : <Link to="/login" className="btn btn-ghost bg-[#e0a82e] hover:bg-yellow-700 text-white font-bold"> <FaSignInAlt className='me-1'></FaSignInAlt> Login</Link>
