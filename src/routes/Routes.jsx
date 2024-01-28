@@ -14,66 +14,80 @@ import UpdateToy from "../components/UpdateToy/UpdateToy";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 
-
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>
-            },
-            {
-                path: "/blogs",
-                element: <Blogs></Blogs>
-            },
-            {
-                path: "/login",
-                element: <Login></Login>
-            },
-            {
-                path: "/register",
-                element: <Register></Register>
-            },
-            {
-                path: "/add-toy",
-                element: <PrivateRoutes><AddToy></AddToy></PrivateRoutes>
-            },
-            {
-                path: "/my-toys",
-                element: <PrivateRoutes><MyToys></MyToys></PrivateRoutes>
-            },
-            {
-                path: "/update-toy/:id",
-                element: <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toy/${params.id}`)
-            },
-            {
-                path: "/all-toys",
-                element: <AllToys></AllToys>,
-                loader: () => fetch("https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toys")
-            },
-            {
-                path: "/toy/:id",
-                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-eshansaif.vercel.app/toy/${params.id}`)
-            },
-            {
-                path: "/about",
-                element: <About></About>
-            },
-            {
-                path: "/contact",
-                element: <Contact></Contact>
-            }
-
-        ]
-    },
-    {
-        path: "*",
-        element: <NotFound></NotFound>
-    }
+        element: <Home></Home>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/add-toy",
+        element: (
+          <PrivateRoutes>
+            <AddToy></AddToy>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/my-toys",
+        element: (
+          <PrivateRoutes>
+            <MyToys></MyToys>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update-toy/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateToy></UpdateToy>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:3001/toy/${params.id}`),
+      },
+      {
+        path: "/all-toys",
+        element: <AllToys></AllToys>,
+        loader: () => fetch("http://localhost:3001/toys"),
+      },
+      {
+        path: "/toy/:id",
+        element: (
+          <PrivateRoutes>
+            <ViewDetails></ViewDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:3001/toy/${params.id}`),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
+  },
 ]);
 
 export default router;
