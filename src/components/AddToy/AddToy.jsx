@@ -17,7 +17,7 @@ const AddToy = () => {
   } = useForm();
   const onSubmit = (newToy) => {
     // send data to the server
-    fetch("http://localhost:3001/toys", {
+    fetch("http://localhost:3000/toys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

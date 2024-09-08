@@ -58,12 +58,12 @@ const router = createBrowserRouter([
             <UpdateToy></UpdateToy>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3001/toy/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
       },
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:3001/toys"),
+        loader: () => fetch("http://localhost:3000/toys"),
       },
       {
         path: "/toy/:id",
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3001/toy/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
       },
       {
         path: "/about",

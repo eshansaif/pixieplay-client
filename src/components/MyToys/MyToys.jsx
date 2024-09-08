@@ -14,7 +14,7 @@ const MyToys = () => {
   const [sortedToys, setSortedToys] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/my-toys/${email}`)
+    fetch(`http://localhost:3000/my-toys/${email}`)
       .then((response) => response.json())
       .then((data) => {
         setMyToys(data);
@@ -68,7 +68,7 @@ const MyToys = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:3001/toy/${_id}`, {
+        fetch(`http://localhost:3000/toy/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
