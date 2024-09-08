@@ -33,7 +33,7 @@ const UpdateToy = () => {
   } = useForm();
   const onSubmit = (newToy) => {
     // update data to the server
-    fetch(`http://localhost:3000/toy/${_id}`, {
+    fetch(`https://pixieplay-server-djy8.vercel.app/toy/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

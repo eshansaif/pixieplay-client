@@ -58,12 +58,13 @@ const router = createBrowserRouter([
             <UpdateToy></UpdateToy>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://pixieplay-server-djy8.vercel.app/toy/${params.id}`),
       },
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:3000/toys"),
+        loader: () => fetch("https://pixieplay-server-djy8.vercel.app/toys"),
       },
       {
         path: "/toy/:id",
@@ -72,7 +73,8 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://pixieplay-server-djy8.vercel.app/toy/${params.id}`),
       },
       {
         path: "/about",

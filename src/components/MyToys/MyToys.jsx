@@ -14,7 +14,7 @@ const MyToys = () => {
   const [sortedToys, setSortedToys] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-toys/${email}`)
+    fetch(`https://pixieplay-server-djy8.vercel.app/my-toys/${email}`)
       .then((response) => response.json())
       .then((data) => {
         setMyToys(data);
@@ -68,7 +68,7 @@ const MyToys = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:3000/toy/${_id}`, {
+        fetch(`https://pixieplay-server-djy8.vercel.app/toy/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -42,18 +42,18 @@ const TabSubCategory = () => {
   const [miniFireTrucks, setMiniFireTrucks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/toys/Sports%20Car")
+    fetch("https://pixieplay-server-djy8.vercel.app/toys/Sports%20Car")
       .then((res) => res.json())
       .then((data) => {
         setSportCars(data);
       });
 
-    fetch("http://localhost:3000/toys/Truck")
+    fetch("https://pixieplay-server-djy8.vercel.app/toys/Truck")
       .then((res) => res.json())
       .then((data) => {
         setTrucks(data);
       });
-    fetch("http://localhost:3000/toys/Mini%20Fire%20Truck")
+    fetch("https://pixieplay-server-djy8.vercel.app/toys/Mini%20Fire%20Truck")
       .then((res) => res.json())
       .then((data) => {
         setMiniFireTrucks(data);

@@ -17,7 +17,7 @@ const AddToy = () => {
   } = useForm();
   const onSubmit = (newToy) => {
     // send data to the server
-    fetch("http://localhost:3000/toys", {
+    fetch("https://pixieplay-server-djy8.vercel.app/toys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
